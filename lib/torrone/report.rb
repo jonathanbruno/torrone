@@ -12,7 +12,7 @@ module Torrone
         _JsonQLQueryExecuterFactory = Rjb::import 'net.sf.jasperreports.engine.query.JsonQLQueryExecuterFactory'
         _JsonQueryExecuterFactory = Rjb::import 'net.sf.jasperreports.engine.query.JsonQueryExecuterFactory'
         _JasperFillManager = Rjb::import 'net.sf.jasperreports.engine.JasperFillManager'
-        _JasperExportManager = Rjb::import 'net.sf.jasperreports.engine.JasperExportManager'
+        
         _JasperPrint = Rjb::import 'net.sf.jasperreports.engine.JasperPrint'
         
         _Locale = Rjb::import 'java.util.Locale'
@@ -35,8 +35,8 @@ module Torrone
         parameters.put(_JRParameter.REPORT_LOCALE, _Locale.US);
         parameters.put('CNPJ_EMPRESA', '5--353');
 			  parameters.put(_JsonQLQueryExecuterFactory.JSON_INPUT_STREAM, datastream) 
-			  jasperPrint = _JasperFillManager.fillReport(jasper_file, parameters);
-        _JasperExportManager.exportReportToPdfFile(jasperPrint,"reports/users.pdf");
+        jasperPrint = _JasperFillManager.fillReport(jasper_file, parameters);
+        ExportManager.export(jasperPrint)
       end
 
       private

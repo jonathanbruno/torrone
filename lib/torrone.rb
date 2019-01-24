@@ -7,4 +7,5 @@ module Torrone
   autoload :JARLoader, 'torrone/jar_loader'
   autoload :Config, 'torrone/config'
   autoload :JsonInputStream, 'torrone/json_input_stream'
+  autoload :ExportManager, 'torrone/export_manager'
 end
