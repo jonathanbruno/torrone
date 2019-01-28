@@ -8,6 +8,8 @@ module Torrone
 
     def self.configure
       conf = Configuration.new
+      conf.jar_dir = 'torrone/jars'
+
       yield conf
       @jar_dir = conf.jar_dir if conf.jar_dir
       @jasper_dir = conf.jasper_dir if conf.jasper_dir
