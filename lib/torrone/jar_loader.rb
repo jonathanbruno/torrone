@@ -6,7 +6,7 @@ module Torrone
       return if Rjb::loaded?
       #RJM Loading
       jars = Dir.glob("#{Config.jar_dir}/*.jar").join(':')
-      #print jars
+
       Rjb::load(jars)
     end
   end

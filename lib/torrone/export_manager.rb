@@ -4,10 +4,9 @@ module Torrone
       def export(jasper_print)
         _JasperExportManager = Rjb::import 'net.sf.jasperreports.engine.JasperExportManager'
         _JasperExportManager._invoke(
-          'exportReportToPdfFile',
-          'Lnet.sf.jasperreports.engine.JasperPrint;Ljava.lang.String;',
-          jasper_print,
-          "reports/users.pdf"
+          'exportReportToPdf',
+          'Lnet.sf.jasperreports.engine.JasperPrint;',
+          jasper_print
         )
       end
     end

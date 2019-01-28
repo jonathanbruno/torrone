@@ -7,7 +7,7 @@ module Torrone
 
     class << self
       def generate(report_name, options = {}, params = {})
-        data = options[:data]
+        data = options[:data] if options
         _JRParameter = Rjb::import 'net.sf.jasperreports.engine.JRParameter'
         _JsonQLQueryExecuterFactory = Rjb::import 'net.sf.jasperreports.engine.query.JsonQLQueryExecuterFactory'
         _JsonQueryExecuterFactory = Rjb::import 'net.sf.jasperreports.engine.query.JsonQueryExecuterFactory'
