@@ -24,7 +24,7 @@ Before doing anything, you should configure Torrone::
 
 Having a compiled jasper file, you can generate a PDF report::
 
-    Torrone::Report.generate('emails', [
+    Torrone::Report.generate('emails', data: [
       { email: 'foo@bar.com' },
       { email: 'foo2@bar.com'},
       { email: 'foo3@bar.com'}]
