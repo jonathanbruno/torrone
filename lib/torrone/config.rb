@@ -8,7 +8,7 @@ module Torrone
 
     def self.configure
       conf = Configuration.new
-      conf.jar_dir = 'torrone/jars'
+      conf.jar_dir = "#{File.dirname(__FILE__)}/../../jars"
 
       yield conf
       @jar_dir = conf.jar_dir if conf.jar_dir
