@@ -36,7 +36,9 @@ module Torrone
         parameters.put('CNPJ_EMPRESA', '5--353');
 			  parameters.put(_JsonQLQueryExecuterFactory.JSON_INPUT_STREAM, datastream) 
         jasperPrint = _JasperFillManager.fillReport(jasper_file, parameters);
-        ExportManager.export(jasperPrint)
+        format = options[:format]
+        ExportManager.export(jasperPrint, format)
+
       end
 
       private
