@@ -8,4 +8,5 @@ module Torrone
   autoload :Config, 'torrone/config'
   autoload :JsonInputStream, 'torrone/json_input_stream'
   autoload :ExportManager, 'torrone/export_manager'
+  autoload :Exporters, 'torrone/exporters'  
 end
