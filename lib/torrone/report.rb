@@ -12,14 +12,9 @@ module Torrone
         _JsonQLQueryExecuterFactory = Rjb::import 'net.sf.jasperreports.engine.query.JsonQLQueryExecuterFactory'
         _JsonQueryExecuterFactory = Rjb::import 'net.sf.jasperreports.engine.query.JsonQueryExecuterFactory'
         _JasperFillManager = Rjb::import 'net.sf.jasperreports.engine.JasperFillManager'
-        
-        _JasperPrint = Rjb::import 'net.sf.jasperreports.engine.JasperPrint'
-        
         _Locale = Rjb::import 'java.util.Locale'
-        
         _HashMap = Rjb::import 'java.util.HashMap'
-        _StandardCharsets = Rjb::import 'java.nio.charset.StandardCharsets'
-        
+
         namespace, report_name = extract_namespace(report_name)
         report_path = File.join(Config.jasper_dir || '.', namespace, report_name)
         jrxml_file = "#{report_path}.jrxml"
@@ -33,11 +28,10 @@ module Torrone
 			  parameters.put(_JsonQueryExecuterFactory.JSON_NUMBER_PATTERN, "#,##0.##");
 			  parameters.put(_JsonQueryExecuterFactory.JSON_LOCALE, _Locale.ENGLISH);
         parameters.put(_JRParameter.REPORT_LOCALE, _Locale.US);
-        parameters.put('CNPJ_EMPRESA', '5--353');
 			  parameters.put(_JsonQLQueryExecuterFactory.JSON_INPUT_STREAM, datastream) 
+        
         jasperPrint = _JasperFillManager.fillReport(jasper_file, parameters);
-        format = options[:format]
-        ExportManager.export(jasperPrint, format)
+        ExportManager.export(jasperPrint, options[:format])
 
       end
 

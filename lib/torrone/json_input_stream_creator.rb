@@ -1,7 +1,7 @@
 require 'json'
 
 module Torrone
-  class JsonInputStream
+  class JsonInputStreamCreator
     class << self
       def to_stream(data)
         _String = Rjb::import 'java.lang.String'
