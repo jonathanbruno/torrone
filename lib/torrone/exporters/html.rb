@@ -1,6 +1,6 @@
 module Torrone
   module Exporters
-    class CsvExporter < BaseExporter
+    class Html < Base
       def export(jasper_print)
         super(jasper_print) do |exporter, configuration|
           #configuration.setOnePagePerSheet(true);
@@ -10,11 +10,15 @@ module Torrone
       protected
 
       def exporter_class
-        Rjb::import 'net.sf.jasperreports.engine.export.JRCsvExporter'
+        Rjb::import 'net.sf.jasperreports.engine.export.HtmlExporter'
       end
 
       def report_configuration_class
-        Rjb::import 'net.sf.jasperreports.export.SimpleCsvReportConfiguration'
+        Rjb::import 'net.sf.jasperreports.export.SimpleHtmlReportConfiguration'
+      end
+
+      def output_stream_exporter_class 
+        Rjb::import 'net.sf.jasperreports.export.SimpleHtmlExporterOutput'
       end
     end
   end

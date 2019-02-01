@@ -6,7 +6,14 @@ module Torrone
   autoload :Report, 'torrone/report'
   autoload :JARLoader, 'torrone/jar_loader'
   autoload :Config, 'torrone/config'
-  autoload :JsonInputStream, 'torrone/json_input_stream'
+  autoload :JsonInputStreamCreator, 'torrone/json_input_stream_creator'
   autoload :ExportManager, 'torrone/export_manager'
-  autoload :Exporters, 'torrone/exporters'  
+
+  module Exporters
+    autoload :Base, 'torrone/exporters/base'
+    autoload :Pdf, 'torrone/exporters/pdf'
+    autoload :Xls, 'torrone/exporters/xls'
+    autoload :Csv, 'torrone/exporters/csv'
+    autoload :Html, 'torrone/exporters/html'
+  end
 end

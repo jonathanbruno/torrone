@@ -1,6 +1,6 @@
 module Torrone
   module Exporters 
-    class BaseExporter
+    class Base
       def export(jasper_print)
         _DefaultJasperReportsContext = Rjb::import 'net.sf.jasperreports.engine.DefaultJasperReportsContext'
         _SimpleExporterInput = Rjb::import 'net.sf.jasperreports.export.SimpleExporterInput'
