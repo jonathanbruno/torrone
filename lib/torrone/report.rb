@@ -6,9 +6,9 @@ module Torrone
   class Report
 
     class << self
-      def generate(report_name, options = {}, params = {})
+      def generate(report_name, options = {})
         datastream = JsonInputStreamCreator.to_stream(options[:data])
-        jasperPrint = RunManager.fill_report(report_name, datastream)
+        jasperPrint = RunManager.fill_report(report_name, datastream, options[:params])
         ExportManager.export(jasperPrint, options[:format])
       end
     end

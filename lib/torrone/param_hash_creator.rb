@@ -1,7 +1,7 @@
 module Torrone
   class ParamHashCreator
-    def initialize
-      @ruby_params = {}
+    def initialize(ruby_params = {})
+      @ruby_params = ruby_params
     end
 
     def add(key, value)

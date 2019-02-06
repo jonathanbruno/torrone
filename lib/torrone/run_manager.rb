@@ -1,7 +1,7 @@
 module Torrone
   class RunManager
     class << self
-      def fill_report(report_name, datastream)
+      def fill_report(report_name, datastream, params = {})
         _JsonQLQueryExecuterFactory = Rjb::import 'net.sf.jasperreports.engine.query.JsonQLQueryExecuterFactory'
 
         namespace, report_name = extract_namespace(report_name)
@@ -11,7 +11,7 @@ module Torrone
         jasper_file = Compiler.compile(jrxml_file);
         _JasperFillManager = Rjb::import 'net.sf.jasperreports.engine.JasperFillManager'
 
-        params_creator = ParamHashCreator.new
+        params_creator = ParamHashCreator.new(params)
         params_creator.add(_JsonQLQueryExecuterFactory.JSON_INPUT_STREAM, datastream)
         jasperPrint = _JasperFillManager.fillReport(jasper_file, params_creator.params_hash);
       end
