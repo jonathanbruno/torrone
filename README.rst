@@ -1,3 +1,4 @@
+
 Torrone
 ======
 
@@ -24,13 +25,26 @@ Before doing anything, you should configure Torrone::
 
 Having a compiled jasper file, you can generate a PDF report::
 
-    Torrone::Report.generate('emails', data: [
-      { email: 'foo@bar.com' },
-      { email: 'foo2@bar.com'},
-      { email: 'foo3@bar.com'}]
+    array_of_bytes = Torrone::Report.generate('emails',
+	    data: [
+	      { email: 'foo@bar.com' },
+	      { email: 'foo2@bar.com'},
+	      { email: 'foo3@bar.com'}
+	    ]
     )
 
-it generates a report file called emails.pdf
+it returns an array of bytes.
+
+You can also pass a hash of custom/specifics parameters, just like this:
+
+    array_of_bytes = Torrone::Report.generate('emails',
+	    data: [
+	      { email: 'foo@bar.com' },
+	      { email: 'foo2@bar.com'},
+	      { email: 'foo3@bar.com'}
+	    ],
+	    params: {'COMPANY_NAME' => 'My company name'}
+    )
 
 Contributing
 ------------
