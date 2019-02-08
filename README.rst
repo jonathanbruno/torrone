@@ -35,7 +35,7 @@ Having a compiled jasper file, you can generate a PDF report::
 
 it returns an array of bytes.
 
-You can also pass a hash of custom/specifics parameters, just like this:
+You can also pass a hash of custom/specifics parameters, just like this::
 
     array_of_bytes = Torrone::Report.generate('emails',
 	    data: [
